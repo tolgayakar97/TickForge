@@ -1,0 +1,13 @@
+add_library(Trader
+    src/Trader.cpp
+)
+
+target_include_directories(Trader
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include   
+)
+
+# Target uses Bank library
+target_link_libraries(Trader
+    PUBLIC Bank
+)

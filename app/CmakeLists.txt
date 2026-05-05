@@ -1,0 +1,8 @@
+add_executable(TickForgeApp
+    main.cpp
+)
+
+target_link_libraries(TickForgeApp
+    PRIVATE Bank
+    PRIVATE Trader
+)

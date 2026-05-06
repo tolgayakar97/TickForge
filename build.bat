@@ -4,5 +4,5 @@ IF EXIST out (
 
 mkdir out
 cd out
-cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+cmake .. -G Ninja -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release

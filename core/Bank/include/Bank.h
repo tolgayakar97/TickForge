@@ -4,19 +4,22 @@
 #include <memory>
 #include <vector>
 #include <thread>
+#include <atomic>
 #include "Trader.h" 
 
 class Bank {
 public:
-    Bank();
+    Bank(float p);
     ~Bank();
-    bool RegisterTrader(std::weak_ptr<Trader> trader);
-    bool UnregisterTrader(std::weak_ptr<Trader> trader);
+    void RegisterTrader(std::weak_ptr<Trader>);
+    bool UnregisterTrader(std::weak_ptr<Trader>);
 private:
     float price;
+    std::atomic<bool> stopFlag;
     std::vector<std::weak_ptr<Trader>> traderList;
     void Notify();
     void UpdatePrice();
+    void CalculateProfit(int&, float&);
     std::thread t;
 };
 

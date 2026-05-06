@@ -3,7 +3,10 @@
 
 class Trader
 {
-    
+public:
+    Trader();
+    ~Trader() = default;
+    void Update(float&);
 };
 
 #endif

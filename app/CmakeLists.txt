@@ -5,4 +5,5 @@ add_executable(TickForgeApp
 target_link_libraries(TickForgeApp
     PRIVATE Bank
     PRIVATE Trader
+    PRIVATE Strategy
 )

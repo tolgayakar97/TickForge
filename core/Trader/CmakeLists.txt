@@ -4,5 +4,10 @@ add_library(Trader
 
 target_include_directories(Trader
     PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include   
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+target_link_libraries(Trader
+    PUBLIC
+        Strategy
 )

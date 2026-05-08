@@ -5,4 +5,5 @@ add_library(Strategy
 target_include_directories(Strategy
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/../Common
 )

@@ -4,16 +4,22 @@
 #include <iostream>
 #include <memory>
 #include "IStrategy.h"
-class Trader
-{
+#include "TraderState.h"
+
+class Trader {
 public:
-    Trader();
+    Trader(float budget);
     ~Trader() = default;
     void Update(float&);
+    void SetStrategy(std::unique_ptr<IStrategy> strategy);
 private:
     std::unique_ptr<IStrategy> strategy_;
-    float budget;
+    float budget_;
     int transactionAmount;
+    float averageCost_{0.0f};
+    TraderState traderState;
+private:
+    void UpdateTraderState(TraderState& traderState);
 };
 
 #endif

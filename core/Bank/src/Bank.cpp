@@ -38,7 +38,7 @@ void Bank::UpdatePrice()
         
         auto profitOrLoss = rand() % 2;
         std::cout << "----------------------" << std::endl;
-        std::cout << "ProfitOrLoss: " << profitOrLoss << std::endl;
+        std::cout << "ProfitOrLoss: " << ((profitOrLoss == 1) ? "Profit" : "Loss") << std::endl;
         CalculateProfit(profitOrLoss, price);
         Notify();
     }

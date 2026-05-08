@@ -1,7 +1,7 @@
 #ifndef SIGNAL_H
 #define SIGNAL_H
 
-enum SIGNAL {
+enum class Signal {
     BUY,
     SELL,
     HOLD

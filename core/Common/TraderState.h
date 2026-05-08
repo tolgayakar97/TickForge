@@ -4,6 +4,7 @@
 struct TraderState {
     float budget{0.0f};
     float averageCost{0.0f};
+    int shareAmount{0};
 };
 
 #endif

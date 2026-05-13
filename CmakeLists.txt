@@ -4,6 +4,7 @@ project(TickForge LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_subdirectory(core/Infrastructure/Network)
 add_subdirectory(core/Bank)
 add_subdirectory(core/Trader)
 add_subdirectory(core/Strategy)

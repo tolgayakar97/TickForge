@@ -10,7 +10,7 @@ void Trader::Update(const float& price)
 {
     std::cout << "Trader::Update start" << std::endl;
     price_ = price;
-    if (transactionAmount_ == 0) {
+    if (tradeAmount_ == 0) {
         Buy(1); // First buy to set the average cost
         return;
     }
@@ -19,8 +19,7 @@ void Trader::Update(const float& price)
     UpdateShareState(shareState);
     if(strategy_ != nullptr) {
         auto signal = strategy_->RunStrategy(traderState, shareState);
-        std::cout << "Signal: " << (signal == Signal::BUY ? "BUY" : "SELL") << std::endl;
-        HandleTransaction(signal, 1); // Example: buying 1 share
+        HandleTrading(signal, 1); // Example: buying 1 share
     }
     std::cout << "Trader::Update end" << std::endl;
 }
@@ -42,9 +41,9 @@ void Trader::UpdateShareState(ShareState& shareState)
     shareState.price = price_;
 }
 
-void Trader::HandleTransaction(const Signal& signal, int amount)
+void Trader::HandleTrading(const Signal& signal, int amount)
 {
-    if (transactionAmount_ == 4) {
+    if (tradeAmount_ == 4) {
         Sell();
         return;
     }
@@ -64,8 +63,8 @@ void Trader::Buy(const int& amount)
     std::cout << "amount : " << amount <<std::endl;
     auto cost = price_ * amount;
     std::cout << "cost : " << cost <<std::endl;
-    transactionAmount_++;
-    std::cout << "transactionAmount_ : " << transactionAmount_ << std::endl;
+    tradeAmount_++;
+    std::cout << "tradeAmount_ : " << tradeAmount_ << std::endl;
         
     budget_ -= cost;
     shareAmount_ += amount;
@@ -81,6 +80,6 @@ void Trader::Sell()
     budget_ += cost;
     shareAmount_ = 0;
     averageCost_ = 0;
-    transactionAmount_++;
+    tradeAmount_++;
     std::cout << "Share sold!" << std::endl;
 }

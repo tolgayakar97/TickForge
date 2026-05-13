@@ -2,6 +2,7 @@
 #include <thread>
 #include <chrono>
 #include "Bank.h"
+#include "TcpServer.h"
 
 Bank::Bank(float p)
 {
@@ -26,7 +27,6 @@ void Bank::CalculateProfit(int& profitOrLoss, float& price)
     auto percentage =  static_cast<float>(rand() % 11);
     percentage = (profitOrLoss  == 1) ? percentage : (-1.0f * percentage); 
     std::cout << "percentage: " << percentage << std::endl;
-    std::cout << "old price: " << price << std::endl;
     price += (price * percentage) / 100.0f; 
 }
 

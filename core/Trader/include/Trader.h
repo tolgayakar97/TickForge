@@ -17,7 +17,7 @@ private:
     std::unique_ptr<IStrategy> strategy_;
     float budget_;
     float price_;
-    int transactionAmount_;
+    int tradeAmount_;
     int shareAmount_;
     float averageCost_{0.0f};
     TraderState traderState;
@@ -25,7 +25,7 @@ private:
 private:
     void UpdateTraderState(TraderState& traderState);
     void UpdateShareState(ShareState& shareState);
-    void HandleTransaction(const Signal& signal, int amount);
+    void HandleTrading(const Signal& signal, int amount);
     void Buy(const int& amount);
     void Sell();
 };
